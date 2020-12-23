@@ -104,9 +104,25 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gadd="git add . && git commit -m $*"
-alias start-env"source ./$*/bin/activate"
+alias gaddall="git add . && git commit -m $*"
+alias add="git add $*"
+alias comm="git commit -m $*"
+alias start-env"source ./{$*}/bin/activate"
 alias rezsh="source ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# custom alias functions
+editZsh() {
+  vim ~/.zshrc
+  source ~/.zshrc
+}
+
+commitZsh() {
+  cp ~/.zshrc ~/dotfiles/src 
+  cd ~/dotfiles
+  git add .
+  git commit -m $1
+  git push
+}
