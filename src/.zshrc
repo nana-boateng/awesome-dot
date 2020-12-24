@@ -45,9 +45,21 @@ editZsh() {
 
 # copy zsh config file to repo, commit with argument and push to github
 commitZsh() {
+  source ~/.zshrc
   cp ~/.zshrc ~/dotfiles/src 
   cd ~/dotfiles
   git add .
   git commit -m $1
   git push
+}
+
+updateDotRepo() {
+  cp ~/.zshrc ~/dotfiles/src
+  cp ~/.p10k.zsh ~/dotfiles/src
+  cp ~/.profile ~/dotfiles/src
+  cd ~/dotfiles
+  git add . 
+  git commit -m $1
+  git push
+  cd ~
 }
