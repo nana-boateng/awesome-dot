@@ -54,10 +54,10 @@ commitZsh() {
 }
 
 updateDotRepo() {
-  cp ~/.zshrc ~/dotfiles/src
-  cp ~/.p10k.zsh ~/dotfiles/src
-  cp ~/.profile ~/dotfiles/src
-  cd ~/dotfiles
+  cp ~/.zshrc ~/.config/dotfiles/src
+  cp ~/.p10k.zsh ~/.config/dotfiles/src
+  cp ~/.profile ~/.config/dotfiles/src
+  cd ~/.config/dotfiles
   git add . 
   git commit -m $1
   git push
